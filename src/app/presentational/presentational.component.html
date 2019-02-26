@@ -1,0 +1,5 @@
+<p *ngIf="data; else nodata">
+  {{ data | json }}
+</p>
+
+<ng-template #nodata>no data received yet</ng-template>
