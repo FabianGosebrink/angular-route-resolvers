@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-container',
@@ -12,9 +13,9 @@ import { Observable } from 'rxjs';
 export class ContainerComponent implements OnInit {
   data$: Observable<any>;
 
-  constructor(private readonly httpClient: HttpClient) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    this.data$ = this.httpClient.get('https://swapi.co/api/people/1');
+    this.data$ = this.activatedRoute.data.pipe(map(data => data.resolverData));
   }
 }

@@ -3,11 +3,9 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-presentational',
   template: `
-    <p *ngIf="data; else nodata">
+    <p *ngIf="data">
       {{ data | json }}
     </p>
-
-    <ng-template #nodata>no data received yet</ng-template>
   `,
   styleUrls: ['./presentational.component.css'],
 })

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './container/container.component';
+import { DataResolver } from './first.resolver';
 import { HomeComponent } from './home/home.component';
 import { PresentationalComponent } from './presentational/presentational.component';
 
@@ -21,11 +22,14 @@ import { PresentationalComponent } from './presentational/presentational.compone
       {
         path: 'home',
         component: HomeComponent,
-        // resolve: {
-        //   firstResolverData: FirstResolver,
-        // },
       },
-      { path: 'container', component: ContainerComponent },
+      {
+        path: 'container',
+        component: ContainerComponent,
+        resolve: {
+          resolverData: DataResolver,
+        },
+      },
     ]),
     HttpClientModule,
   ],
